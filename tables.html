@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <!-- Sidebar with Glass Effect -->
+    <div class="d-flex">
+        <div id="sidebar" class="sidebar glass-effect p-3">
+            <img src="aau_primary_logo.png" alt="EMR/CMS Logo" class="text-white py-3">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html"><i class="fa fa-home"></i> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-user"></i> Patient Portal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-file"></i> Report Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#formsSubmenu" aria-expanded="false">
+                        <i class="fa fa-edit me-2"></i>
+                        <span>Forms</span>
+                        <i class="fa fa-chevron-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="formsSubmenu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="student_form.html"><i class="fa fa-user-graduate"></i> Student Form</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="registration_form.html"><i class="fa fa-user-plus"></i> Registration Form</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="patient_form.html"><i class="fa fa-user-injured"></i> Patient Form</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#analyticsSubmenu" aria-expanded="false">
+                        <i class="fa fa-chart-line"></i> Analytics <i class="fa fa-chevron-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="analyticsSubmenu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-chart-bar"></i> Usage Statistics</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-chart-pie"></i> Patient Demographics</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-chart-line"></i> Treatment Outcomes</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="#" class="btn btn-danger mt-auto"><i class="fa fa-sign-out-alt"></i> Logout</a>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="content flex-grow-1">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+                <div class="container-fluid">
+                    <button class="btn btn-outline-primary" id="sidebarToggle">
+                        <span id="toggleIcon">☰</span>
+                    </button>
+                    <a class="navbar-brand ms-3" href="#">EMR/CMS Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fa fa-user-circle"></i> Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" href="#"><i class="fa fa-sign-out-alt"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+            <!-- Student Table -->
+            <div class="mt-4">
+                <h2>Students List</h2>
+                <table id="studentsTable" class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Student ID</th>
+                            <th>Date of Birth</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>2021001</td>
+                            <td>2000-01-01</td>
+                            <td>john.doe@example.com</td>
+                            <td>123-456-7890</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>2021002</td>
+                            <td>2000-02-02</td>
+                            <td>jane.smith@example.com</td>
+                            <td>234-567-8901</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Emily Johnson</td>
+                            <td>2021003</td>
+                            <td>2000-03-03</td>
+                            <td>emily.johnson@example.com</td>
+                            <td>345-678-9012</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Michael Brown</td>
+                            <td>2021004</td>
+                            <td>2000-04-04</td>
+                            <td>michael.brown@example.com</td>
+                            <td>456-789-0123</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jessica Davis</td>
+                            <td>2021005</td>
+                            <td>2000-05-05</td>
+                            <td>jessica.davis@example.com</td>
+                            <td>567-890-1234</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>David Wilson</td>
+                            <td>2021006</td>
+                            <td>2000-06-06</td>
+                            <td>david.wilson@example.com</td>
+                            <td>678-901-2345</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sarah Martinez</td>
+                            <td>2021007</td>
+                            <td>2000-07-07</td>
+                            <td>sarah.martinez@example.com</td>
+                            <td>789-012-3456</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Daniel Garcia</td>
+                            <td>2021008</td>
+                            <td>2000-08-08</td>
+                            <td>daniel.garcia@example.com</td>
+                            <td>890-123-4567</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Olivia Rodriguez</td>
+                            <td>2021009</td>
+                            <td>2000-09-09</td>
+                            <td>olivia.rodriguez@example.com</td>
+                            <td>901-234-5678</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Matthew Lee</td>
+                            <td>2021010</td>
+                            <td>2000-10-10</td>
+                            <td>matthew.lee@example.com</td>
+                            <td>012-345-6789</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sophia Walker</td>
+                            <td>2021011</td>
+                            <td>2000-11-11</td>
+                            <td>sophia.walker@example.com</td>
+                            <td>123-456-7891</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>James Hall</td>
+                            <td>2021012</td>
+                            <td>2000-12-12</td>
+                            <td>james.hall@example.com</td>
+                            <td>234-567-8902</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ava Allen</td>
+                            <td>2021013</td>
+                            <td>2001-01-13</td>
+                            <td>ava.allen@example.com</td>
+                            <td>345-678-9013</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Logan Young</td>
+                            <td>2021014</td>
+                            <td>2001-02-14</td>
+                            <td>logan.young@example.com</td>
+                            <td>456-789-0124</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Isabella King</td>
+                            <td>2021015</td>
+                            <td>2001-03-15</td>
+                            <td>isabella.king@example.com</td>
+                            <td>567-890-1235</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jackson Wright</td>
+                            <td>2021016</td>
+                            <td>2001-04-16</td>
+                            <td>jackson.wright@example.com</td>
+                            <td>678-901-2346</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Charlotte Scott</td>
+                            <td>2021017</td>
+                            <td>2001-05-17</td>
+                            <td>charlotte.scott@example.com</td>
+                            <td>789-012-3457</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Alexander Green</td>
+                            <td>2021018</td>
+                            <td>2001-06-18</td>
+                            <td>alexander.green@example.com</td>
+                            <td>890-123-4568</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Amelia Adams</td>
+                            <td>2021019</td>
+                            <td>2001-07-19</td>
+                            <td>amelia.adams@example.com</td>
+                            <td>901-234-5679</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> </button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Benjamin Baker</td>
+                            <td>2021020</td>
+                            <td>2001-08-20</td>
+                            <td>benjamin.baker@example.com</td>
+                            <td>012-345-6780</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Initialize DataTable
+            const table = $('#studentsTable').DataTable();
+
+            // Handle form submission
+            $('#studentForm').on('submit', function (e) {
+                e.preventDefault();
+
+                // Get form values
+                const studentName = $('#studentName').val();
+                const studentID = $('#studentID').val();
+                const dob = $('#dob').val();
+                const email = $('#email').val();
+                const phone = $('#phone').val();
+
+                // Add a new row to the table
+                table.row.add([
+                    studentName,
+                    studentID,
+                    dob,
+                    email,
+                    phone
+                ]).draw();
+
+                // Clear the form
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
