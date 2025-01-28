@@ -87,7 +87,6 @@
                 </div>
             </nav>
 
-
             <!-- Student Table -->
             <div class="mt-4">
                 <h2>Students List</h2>
@@ -101,6 +100,7 @@
                             <th>Phone</th>
                             <th>Actions</th>
                         </tr>
+
                     </thead>
                     <tbody>
                         <tr>
@@ -308,8 +308,8 @@
                             <td>amelia.adams@example.com</td>
                             <td>901-234-5679</td>
                             <td>
-                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> </button>
-                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> </button>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
                             </td>
                         </tr>
                         <tr>
@@ -337,7 +337,7 @@
         $(document).ready(function () {
             // Initialize DataTable with hover effect and no pagination
             const table = $('#studentsTable').DataTable({
-                paging: true,  // Remove pagination
+                paging: false,  // Remove pagination
                 rowReorder: true,
                 hover: true,    // Enable hover state
                 rowCallback: function(row, data, index) {
